@@ -150,6 +150,7 @@ func (s *Service) RemoveNode(name string) error {
 }
 
 func (s *Service) GetNode(name string) (*Node, error) {
+	name = trimName(name)
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	n, ok := s.nodes[name]
